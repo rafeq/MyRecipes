@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Recipes</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+</head>
+
+<body>
+    <div id="search">
+        <input type="text" id="search-by-name" placeholder="search" />
+        <button onclick=search()>search</button>
+    </div>
+    <div>
+        <input type="checkbox" id="gluten" name="gluten" value="gluten">
+        <label for="gluten"> gluten</label><br>
+    </div>
+    <div>
+        <input type="checkbox" id="dairy" name="dairy" value="dairy">
+        <label for="dairy"> dairy</label><br>
+    </div>
+    <br>
+    <div id="Recipes" ></div>
+    <script id="searchtemp-template" type="text/x-handlebars-template">
+        {{#each search}}
+        <div class="recips">
+            <a href="{{href}}">{{title}}</a><br>
+            <img data-idMeal="{{idMeal}}"  src="{{thumbnail}}" width="100" height="100" alt="centered image" ><br>
+            <ul>
+                {{#each ingredients}}
+                    <li>{{this}}</li>
+                {{/each}}
+            </ul>
+        </div>
+    {{/each}}
+    </script>
+
+
+
+    <script src="./jquery/dist/jquery.js"></script>
+    <script src="./handlebars/dist/handlebars.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="model.js"></script>
+    <script src="rendrer.js"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>
