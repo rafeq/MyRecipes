@@ -23,8 +23,23 @@
         <input type="checkbox" id="dairy" name="dairy" value="dairy">
         <label for="dairy"> dairy</label><br>
     </div>
+    <div>
+        <label for="idMeal">Id Meal:</label>
+        <input type="text" id="idMeal" name="idMeal" placeholder="enter an id">
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title" placeholder="title of recipe">
+        <label for="thumbnail">thumbnail:</label>
+        <input type="text" id="thumbnail" name="thumbnail" placeholder="image url">
+        <label for="href">href:</label>
+        <input type="text" id="href" name="href" placeholder="youtube url">
+        <label for="ingredients">ingredients:</label>
+        <input type="text" id="ingredients" name="ingredients" placeholder="sprite with ,">
+        <button onclick="addRecipes()">Add</button>
+    </div>
     <br>
-    <div id="Recipes" ></div>
+    
+    <div class="Recipes" id="Recipes" ></div>
+    <div class="pagenumbers" id="pagination"></div>
     <script id="searchtemp-template" type="text/x-handlebars-template">
         {{#each search}}
         <div class="recips">

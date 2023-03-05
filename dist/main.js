@@ -1,5 +1,7 @@
 api = new apiModel()
+/////////////////////////////////////////////////////////////////////
 
+/////////////////////////////////////////////////////////////////////
 const search = function () {
     let searchByName = $("#search-by-name").val()
     api.fetch(searchByName)
@@ -7,7 +9,7 @@ const search = function () {
 
 let glutenCheckbox = document.querySelector("input[name=gluten]");
 
-glutenCheckbox.addEventListener('change', function(event){
+glutenCheckbox.addEventListener('change', function (event) {
     if (this.checked) {
         api.glutenFilter();
     } else {
@@ -17,7 +19,7 @@ glutenCheckbox.addEventListener('change', function(event){
 
 let dairyCheckbox = document.querySelector("input[name=dairy]");
 
-dairyCheckbox.addEventListener('change', function(event){
+dairyCheckbox.addEventListener('change', function (event) {
     if (this.checked) {
         api.dairyFilter();
     } else {
@@ -25,10 +27,32 @@ dairyCheckbox.addEventListener('change', function(event){
     }
 });
 
-alertFirstIngredient=function(){
-    idMeal=$(this).data("idmeal");
+alertFirstIngredient = function () {
+    idMeal = $(this).data("idmeal");
     api.alertFirstIngredient(idMeal)
 }
 
-$("#Recipes").on("click", "img" ,alertFirstIngredient)
+
+
+addRecipes = function () {
+    let idMeal = $("#idMeal").val()
+    let title = $("#title").val()
+    let thumbnail = $("#thumbnail").val()
+    let href = $("#href").val()
+    let ingredients = $("#ingredients").val()
+    let arryOfIngredients = ingredients.split(',')
+    //console.log(idMeal,title,thumbnail,href,ingredients);
+    recipe = {
+        idMeal: idMeal,
+        title: title,
+        thumbnail: thumbnail,
+        href: href,
+        ingredients: arryOfIngredients
+    }
+    //console.log(recipe);
+    api.addRecipe(recipe)
+
+}
+
+$("#Recipes").on("click", "img", alertFirstIngredient)
 //onclick="alertFirstIngredient()"
