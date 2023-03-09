@@ -1,17 +1,15 @@
-api = new apiModel()
-/////////////////////////////////////////////////////////////////////
+apiRecipes = new recipesModel()//apiRecipes=>recepesModel
 
-/////////////////////////////////////////////////////////////////////
 const search = function () {
     let searchByName = $("#search-by-name").val()
-    api.fetch(searchByName)
+    apiRecipes.fetch(searchByName)
 }
 
 let glutenCheckbox = document.querySelector("input[name=gluten]");
 
 glutenCheckbox.addEventListener('change', function (event) {
     if (this.checked) {
-        api.glutenFilter();
+        apiRecipes.glutenFilter();
     } else {
         console.log("Checkbox is not checked..");
     }
@@ -21,7 +19,7 @@ let dairyCheckbox = document.querySelector("input[name=dairy]");
 
 dairyCheckbox.addEventListener('change', function (event) {
     if (this.checked) {
-        api.dairyFilter();
+        apiRecipes.dairyFilter();//
     } else {
         console.log("Checkbox is not checked..");
     }
@@ -29,7 +27,7 @@ dairyCheckbox.addEventListener('change', function (event) {
 
 alertFirstIngredient = function () {
     idMeal = $(this).data("idmeal");
-    api.alertFirstIngredient(idMeal)
+    apiRecipes.alertFirstIngredient(idMeal)
 }
 
 
@@ -50,7 +48,7 @@ addRecipes = function () {
         ingredients: arryOfIngredients
     }
     //console.log(recipe);
-    api.addRecipe(recipe)
+    apiRecipes.addRecipe(recipe)
 
 }
 

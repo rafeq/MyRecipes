@@ -60,8 +60,6 @@ router.get('/alertFirstIngredient/:idMeal', function (req, res) {
 })
 
 router.post('/recipe', function (req, res) {
-    //tempIdMeal=parseInt(req.body.idMeal)
-    //console.log(typeof(tempIdMeal));
     tempData={
         idMeal:req.body.idMeal,
         ingredients:req.body.ingredients,

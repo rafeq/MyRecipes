@@ -1,5 +1,5 @@
 
-class apiModel {
+class recipesModel {
     constructor() { }
     fetch(search) {
         axios.get(`/get/${search}`).then(function (response) {
